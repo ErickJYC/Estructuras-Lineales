@@ -19,11 +19,11 @@ public class StackG<T> {
         NodeGenerico<T> nuevoNode = new NodeGenerico<>(value);
         nuevoNode.setNext(top);
         top = nuevoNode;
+        size++;
     }
     public T pop(){
-        if (isEmpty() ){
+        if (isEmpty() )
             throw new EmptyStackException();
-        }
 
         T value = top.getValue();
         top = top.getNext();
@@ -41,12 +41,16 @@ public class StackG<T> {
         if (isEmpty()){
             System.out.println("-------");
         }else {
-            NodeGenerico<T> siguiente = top;
-            while (siguiente != null){
-                System.out.println(siguiente.getValue() + " - ");
-                siguiente = siguiente.getNext();
+            NodeGenerico<T> current = top;
+            while (current != null){
+                System.out.println(current.getValue() + " | ");
+                current = current.getNext();
             }
+            System.out.println();
         }
 
+    }
+    public int size(){
+        return size;
     }
 }

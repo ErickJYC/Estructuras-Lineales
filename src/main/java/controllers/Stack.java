@@ -29,6 +29,7 @@ public class Stack {
         size--;
         return value;
     }
+
     public boolean isEmpty (){
         return top == null;
     }
@@ -41,15 +42,16 @@ public class Stack {
         if (isEmpty()){
             System.out.println("-------");
         }else {
-            Node siguiente = top;
-            while (siguiente != null){
-                System.out.println(siguiente.getValue() + " - ");
-                siguiente = siguiente.getNetx();
+            Node current = top;
+            while (current != null){
+                System.out.println(current.getValue() + " - ");
+                current = current.getNetx();
             }
+            System.out.println();
         }
 
     }
-    public int getSize(){
+    public int size(){
         return size;
     }
 }

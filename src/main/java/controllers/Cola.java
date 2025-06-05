@@ -43,9 +43,9 @@ public class Cola {
         }
     }
     public int remove(){
-        if (isEmpty()){
+        if (isEmpty())
             throw new EmptyStackException();
-        }
+
         int value = primero.getValue();
         primero = primero.getNetx();
         size--;

@@ -27,8 +27,6 @@ public class NodeGenerico <T> {
 
     @Override
     public String toString() {
-        return "NodeGenerico{" +
-                "value=" + value +
-                '}';
+        return "NodeGenerico { value=" + value + ", next=" + next + "}";
     }
 }

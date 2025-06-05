@@ -6,8 +6,8 @@ import models.NodeGenerico;
 import java.util.EmptyStackException;
 
 public class ColaG <T>{
-    private NodeGenerico primero;
-    private NodeGenerico ultimo;
+    private NodeGenerico<T> primero;
+    private NodeGenerico<T> ultimo;
     public int size;
 
     public ColaG() {
@@ -15,21 +15,8 @@ public class ColaG <T>{
         this.ultimo = null;
         this.size = 0;
     }
-
-    public NodeGenerico getPrimero() {
-        return primero;
-    }
-
-    public void setPrimero(NodeGenerico primero) {
-        this.primero = primero;
-    }
-
-    public NodeGenerico getUltimo() {
-        return ultimo;
-    }
-
-    public void setUltimo(NodeGenerico ultimo) {
-        this.ultimo = ultimo;
+    public boolean isEmpty(){
+        return primero == null;
     }
 
     public void add(T value){
@@ -42,33 +29,36 @@ public class ColaG <T>{
             ultimo.setNext(newNode);
             ultimo = newNode;
         }
+        size++;
     }
-    public Object remove(){
-        if (isEmpty()){
-            throw new EmptyStackException();
+    public T remove(){
+        if (isEmpty()) {
+            throw new IllegalStateException("La cola esta vaia.");
         }
-        T value = (T) primero.getValue();
+        T value = primero.getValue();
         primero = primero.getNext();
         size--;
-        return null;
+        return value;
     }
 
-    public int peek(){
+    public T peek(){
         if (isEmpty())
             throw new EmptyStackException();
 
-        return (int) primero.getValue();
+        return primero.getValue();
     }
 
-    public boolean isEmpty(){
-        return primero == null;
-    }
 
-    public void print(){
-        while (primero != null){
-            System.out.println(primero.getValue() + " - ");
-            primero = primero.getNext();
+    public void printCola(){
+        NodeGenerico<T> current = primero;
+        while (current != null){
+            System.out.println(current.getValue() + " - ");
+            current = current.getNext();
         }
+        System.out.println();
+    }
+    public int size(){
+        return size;
     }
 
 }
