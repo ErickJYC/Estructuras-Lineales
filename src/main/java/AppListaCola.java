@@ -1,10 +1,9 @@
-import controllers.Cola;
 import controllers.ColaG;
 import controllers.Stack;
 import controllers.StackG;
 import models.Persona;
 
-public class App {
+public class AppListaCola {
     public static void main(String[] args) {
         Stack stack = new Stack();
         stack.push(10);
